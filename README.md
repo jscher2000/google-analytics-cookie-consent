@@ -13,6 +13,8 @@ This script manages adding Google's analytics.js script to a simple website in a
 
 The script still sends a page view to Google Analytics. What varies when the user has not opted-in to cookies is that multiple page views cannot be linked to unique visitor. The reason is that when analytics.js does not find existing GA cookies, a new and different clientId will associated with each page view. GA will treat each as a unique visitor, which will result in inflated unique visitor counts compared with historical data (whens users had to opt-out).
 
+**_This script does not remove personal information from page titles or URLs._** If you record a page view on a page whose URL include a username, for example, you will need to modify the script to remove that information. See Google's: [Best practices to avoid sending Personally Identifiable Information (PII)](https://support.google.com/analytics/answer/6366371?hl=en&ref_topic=2919631#page-url).
+
 ## A Consent Interaction Event is Recorded
 
 If the user chooses Yes or No in the invitation, or if the user views the invitation without taking action, or if the invitation times out, an event will be sent to Google Analytics named GAConsent with one of those values (yes, no, viewed, timeout). An event also will be sent if the user triggers to revoke function. You can prevent recording of some or all of these events.

@@ -17,6 +17,10 @@ The script still sends a page view to Google Analytics. What varies when the use
 
 If the user chooses Yes or No in the invitation, or if the user views the invitation without taking action, or if the invitation times out, an event will be sent to Google Analytics named GAConsent with one of those values (yes, no, viewed, timeout). An event also will be sent if the user triggers to revoke function. You can prevent recording of some or all of these events.
 
+## IP Addresses Are Anonymized
+
+The script instructs Google to drop the last part of the IP address so it cannot be associated back to a particular network address. Google explains how this works in its article "[IP Anonymization in Analytics](https://support.google.com/analytics/answer/2763052)."
+
 ## Customizing the Script
 
 The top part of the script lists parameters you must set for your Google Analytics account, and some you can modify for the appearance and features of the invitation. To see the default settings in action, you can visit this page: [Google Analytics Cookie Consent Demo](https://www.jeffersonscher.com/gaconsent/).

@@ -1,4 +1,4 @@
-/** Google Analytics.js Cookie Opt-in Consent Checker v1.0 - 2018-05-05
+/** Google Analytics.js Cookie Opt-in Consent Checker v1.1 - 2018-05-06
     Not to be construed as legal advice or opinion.
     Copyright 2018 Jefferson Scher. License: BSD-3-Clause   **/
 
@@ -121,10 +121,10 @@ var GAConsent = {
 				r += '#gaconsent:not(.gapersist):hover{padding-right:30px} ';
 			}
 			//   invitation paragraph and details box (click toggles gapersist)
-			r += '#gaconsentp{margin:0 0 10px} #gaconsent.gapersist #gaconsentp{margin:0 13px 10px} ' +
+			r += '#gaconsentp{margin:0 0 10px;font:15px sans-serif} #gaconsent.gapersist #gaconsentp{margin:0 13px 10px} ' +
 				'#gacaption, #gaconsent.gapersist #gainvite{display:none} #gainvite, #gaconsent.gapersist #gacaption{display:inline} ' +
 				'#gaconsent #gadetails {display:none;margin:10px 0 14px;border:1px solid #888;padding:12px 12px 0;cursor:auto} ' +
-				'#gaconsent.gapersist #gadetails {display:block;} #gadetails p {margin:0 0 12px;line-height:20px} ' +
+				'#gaconsent.gapersist #gadetails {display:block;} #gadetails p {margin:0 0 12px;line-height:20px;font:15px sans-serif} ' +
 				'#gadetails label:hover {background:#ffd;border-radius:3px} #gaoptbutton{white-space:nowrap} #gaoptout{display:none} ';
 			//   fade out and hide for print
 			r += '#gaconsent.fade:not(.gapersist) {opacity:0;transition:opacity 250ms ease-in-out;} ' + 

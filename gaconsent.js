@@ -1,4 +1,4 @@
-/** Google Analytics.js Cookie Opt-in Consent Checker v1.1 - 2018-05-06
+/** Google Analytics.js Cookie Opt-in Consent Checker v1.2 - 2018-05-06
     Not to be construed as legal advice or opinion.
     Copyright 2018 Jefferson Scher. License: BSD-3-Clause   **/
 
@@ -15,6 +15,9 @@ var GAConsent = {
 	/* Events to record in GA related to a visitor's interaction with this script 
 	   Clear everything between [] to turn off event logging */
 	gaevents: ['yes', 'no', 'revoke', 'viewed', 'close', 'timeout'],
+
+	/* Interpreting DNT or other signals */
+	gadntmeansno: true,		/* If a "Do Not Track" signal is detected, treat that as "no" */
 
 	/* Theming and panel features (for other changes, you'll need to edit code) */
 	gaxbutton: false,		/* Provide an X close button (appears next to the triangle) */
@@ -35,6 +38,12 @@ var GAConsent = {
 		
 		// Check for reprompt
 		forceform = forceform || false;
+
+		// Check for other signals
+		var gaDeemNo = false;
+		if (GAConsent.gadntmeansno && !forceform){
+			var gaDeemNo = (navigator.doNotTrack == 1 || navigator.doNotTrack == 'yes') ? true : false;
+		}
 
 		// If user previously gave consent, set up Google Analytics with a cookie
 		var gaccook = Cookies.get('gaconsent');  // can be yes, no, undefined
@@ -68,7 +77,7 @@ var GAConsent = {
 
 		// If user hasn't set yes or no, insert notification / opt-in
 		// Requires IE9 or newer; IE compatibility mode set to IE9 or higher
-		if (gaccook === undefined || forceform === true) {
+		if ((gaccook === undefined && gaDeemNo === false) || forceform === true) {
 			// Opt-out panel content (goes in either your <div id="gaconsent"> or a new one)
 			var gaoptdiv = '<p id="gaconsentp">' + 
 				'<span id="gainvite" title="Please select your Google Analytics cookie preference">Google Analytics <br>Cookie Preference</span>' +

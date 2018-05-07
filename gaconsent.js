@@ -42,7 +42,7 @@ var GAConsent = {
 		// Check for other signals
 		var gaDeemNo = false;
 		if (GAConsent.gadntmeansno && !forceform){
-			var gaDeemNo = (navigator.doNotTrack == 1 || navigator.doNotTrack == 'yes') ? true : false;
+			var gaDeemNo = (navigator.doNotTrack == '1' || navigator.doNotTrack == 'yes') ? true : false;
 		}
 
 		// If user previously gave consent, set up Google Analytics with a cookie

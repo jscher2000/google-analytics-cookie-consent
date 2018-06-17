@@ -19,6 +19,8 @@ The script still sends a page view to Google Analytics. What varies when the use
 
 If the user chooses Yes or No in the invitation, or if the user views the invitation without taking action, or if the invitation times out, an event will be sent to Google Analytics named GAConsent with one of those values (yes, no, viewed, timeout). An event also will be sent if the user triggers to revoke function. You can prevent recording of some or all of these events.
 
+Note that sending events affects the calculation bounce rates. See "Implementation Considerations" in [About Events](https://support.google.com/analytics/answer/1033068?hl=en).
+
 ## "Do Not Track" Integration
 
 By default, the script does not show the cookie consent invitation if Do Not Track is enabled (the script deems this to be a "no" but does not send a "no" event). You can trigger the invitation by customizing the script or by calling the GAConsent.reprompt() function.
